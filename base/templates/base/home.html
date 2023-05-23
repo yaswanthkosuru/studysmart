@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+
+{%block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style\home.css' %}" />
+    <style>
+        .box {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="card">
+            <div class="card-header">
+                <h1>Browse</h1>
+            </div>
+            <div class="card-body">
+                <form role="search" method="GET" action="{% url 'home' %}">
+                    <input name="q" placeholder="search room names">
+                </form>
+                {% include 'base/topic_components.html' %}
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1>{{rooms_count}} Available</h1>
+                <a href="{% url 'create_room' %}">
+                    createroom/login
+                </a>
+            </div>
+            <div class="card-body">
+
+                {% include 'base/feed_component.html' %}
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1>Recent activities</h1>
+            </div>
+            <div class="card-body">
+                {% include 'base/activity_component.html' %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock content %}

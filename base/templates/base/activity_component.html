@@ -1,0 +1,8 @@
+<hr>
+{% for message in room_messages|slice:":6" %}
+<div>
+    <small>@{{message.user}} {{message.created|timesince}} ago </small>
+    <small>replied to {{message.room}}</small>
+    <p>{{message.body}}</p>
+</div>
+{% endfor %}

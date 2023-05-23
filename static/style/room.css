@@ -1,0 +1,18 @@
+ .container {
+     display: grid;
+     grid-template-columns: 3fr 1fr;
+     grid-gap: 20px;
+ }
+
+ .box {
+
+     background-color: #f1e6f9;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     overflow: auto;
+ }
+
+ body {
+     background-color: rgb(199, 245, 229);
+ }

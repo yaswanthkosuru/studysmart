@@ -1,0 +1,67 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+</head>
+{% if page == 'login' %}
+
+<body style="background-color: rgb(154, 212, 223);">
+    <div class="container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Email address</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter username" name="username">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Email address</label>
+                <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="enter password" name="password">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p> havent signed up yet</p>
+            <a href="{%url 'register' %}" class="btn btn-primary">signup</a>
+        </form>
+    </div>
+</body>
+{% else %}
+
+<div class="container">
+    <form method="POST">
+        {%csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="submit" class='btn btn-success'>
+    </form>
+</div>
+
+<!-- Display form errors -->
+{% if form.errors %}
+<div class="error-message">
+    {% for field in form %}
+    {% for error in field.errors %}
+    {{ error }}
+    {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}
+</form>
+
+
+</body>
+{% endif %}
+
+
+
+
+{% endblock content %}

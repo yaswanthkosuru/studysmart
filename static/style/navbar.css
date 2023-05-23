@@ -1,0 +1,14 @@
+.home {
+    float: left;
+    margin-left: 4%;
+}
+
+body {
+    background-color: Hex #9eb3cb;
+
+}
+
+.login {
+    float: right;
+    margin-right: 4%;
+}

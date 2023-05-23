@@ -1,0 +1,9 @@
+<hr>
+<a href="{% url 'home' %}">All</a>
+{% for topic in topics|slice:":10" %}
+<div>
+    <a href="{% url 'home' %}?q={{topic.name}}">
+        <h4>{{topic.name}}</h4>
+    </a>
+</div>
+{% endfor %}
